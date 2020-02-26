@@ -5,6 +5,9 @@ var express = require('express');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 
+// Creacion de config.js para constantes
+var SEED = require('../config/config').SEED;
+
 var app = express();
 
 var Usuario = require('../models/usuario');
@@ -46,7 +49,7 @@ app.post('/', (req, resp) => {
         // Crear un token (jsonwebtoken)
 
         usuarioDB.password = ':)';
-        var token = jwt.sign({ usuario: usuarioDB }, '@este-es@un-seed-dificil', { expiresIn: 600 }); //4 horas
+        var token = jwt.sign({ usuario: usuarioDB }, SEED, { expiresIn: 600 }); //4 horas
 
         // Confirmacion de inicio de sesion
 
@@ -59,19 +62,7 @@ app.post('/', (req, resp) => {
 
     });
 
-
-
 });
-
-
-
-
-
-
-
-
-
-
 
 // Usar la ruta fuera del archivo
 module.exports = app;

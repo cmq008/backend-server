@@ -4,6 +4,11 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
 
+// Importar token
+var mdAutenticacion = require('../middlewares/autenticacion');
+
+// Creacion de config.js para constantes
+// var SEED = require('../config/config').SEED;
 
 var app = express();
 
@@ -35,41 +40,6 @@ app.get('/', (req, resp, next) => {
 });
 
 
-// Crear un nuevo usuario
-
-app.post('/', (req, resp) => {
-
-    // Usar libreria body parser node
-
-    var body = req.body;
-
-    var usuario = new Usuario({
-        nombre: body.nombre,
-        email: body.email,
-        password: bcrypt.hashSync(body.password, 10),
-        img: body.img,
-        role: body.role
-    });
-
-    usuario.save((err, usuarioGuardado) => {
-
-        if (err) {
-            return resp.status(400).json({
-                ok: false,
-                mensaje: 'Error al crear usuario',
-                errors: err
-            });
-        }
-
-        resp.status(201).json({
-            ok: true,
-            usuario: usuarioGuardado
-        });
-
-    });
-
-});
-
 // Actualizar un usuario
 
 app.put('/:id', (req, resp) => {
@@ -77,7 +47,7 @@ app.put('/:id', (req, resp) => {
     var id = req.params.id;
     var body = req.body;
 
-    Usuario.findById(id, (err, usuario) => {
+    Usuario.findById(id, mdAutenticacion.verificaToken, (err, usuario) => {
 
         if (err) {
             return resp.status(500).json({
@@ -122,9 +92,47 @@ app.put('/:id', (req, resp) => {
 
 });
 
+
+// Crear un nuevo usuario
+
+app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
+
+    // Usar libreria body parser node
+
+    var body = req.body;
+
+    var usuario = new Usuario({
+        nombre: body.nombre,
+        email: body.email,
+        password: bcrypt.hashSync(body.password, 10),
+        img: body.img,
+        role: body.role
+    });
+
+    usuario.save((err, usuarioGuardado) => {
+
+        if (err) {
+            return resp.status(400).json({
+                ok: false,
+                mensaje: 'Error al crear usuario',
+                errors: err
+            });
+        }
+
+        resp.status(201).json({
+            ok: true,
+            usuario: usuarioGuardado,
+            usuarioToken: req.usuario
+        });
+
+    });
+
+});
+
+
 // Eliminar usuario por id
 
-app.delete('/:id', (req, resp) => {
+app.delete('/:id', mdAutenticacion.verificaToken, (req, resp) => {
 
     var id = req.params.id;
 
