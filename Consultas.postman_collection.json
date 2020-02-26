@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "330dc952-634f-474c-9fc3-b8795b56fe16",
+		"name": "Consultas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuario: Listar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuario?desde=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					],
+					"query": [
+						{
+							"key": "desde",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Agregar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "test16",
+							"description": "\n",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test16@test16.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "ADMIN_ROLE",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuario?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MjY5MCwiZXhwIjoxNTgyNzQ2MjkwfQ.FDhuW-hYcg24yOpYxH9xi6Gx4PrlDeCr1RzrEFejr_U",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MjY5MCwiZXhwIjoxNTgyNzQ2MjkwfQ.FDhuW-hYcg24yOpYxH9xi6Gx4PrlDeCr1RzrEFejr_U"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Actualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuario/5e5694904d27835ad81998ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"5e5694904d27835ad81998ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario: Borrar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuario/5e5694904d27835ad81998ea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuario",
+						"5e5694904d27835ad81998ea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login: Ingresar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "test1@test1.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: Listar Hospitales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/hospital",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: Agregar Hospital",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "hospital maria auxiliadora",
+							"description": "\n",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/hospital?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTk2NywiZXhwIjoxNTgyNzQ1NTY3fQ.fnl993nWyGbhlu5amSSI13podYXNno1wmymkf7DD51M",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTk2NywiZXhwIjoxNTgyNzQ1NTY3fQ.fnl993nWyGbhlu5amSSI13podYXNno1wmymkf7DD51M"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: Actualizar Hospital",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "hospital del norte",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/hospital/5e56b48e5ca48557dc4439dd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTg2MywiZXhwIjoxNTgyNzQyNDYzfQ.ucMuvnfDQ2k3Xt8pAWdhQOj-cE2ww3patkow4-iHh4Y",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital",
+						"5e56b48e5ca48557dc4439dd"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTg2MywiZXhwIjoxNTgyNzQyNDYzfQ.ucMuvnfDQ2k3Xt8pAWdhQOj-cE2ww3patkow4-iHh4Y"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hospital: Borrar Hospital",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/hospital/5e56b46f0ed40f538881903f?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MDI5MCwiZXhwIjoxNTgyNzQwODkwfQ.SIPRMbqWEDjFsuF0mbPl4voTARq9Gxj4Qy9oiA6RnVo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"hospital",
+						"5e56b46f0ed40f538881903f"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MDI5MCwiZXhwIjoxNTgyNzQwODkwfQ.SIPRMbqWEDjFsuF0mbPl4voTARq9Gxj4Qy9oiA6RnVo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: Listar Medicos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/medico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: Agregar Medico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "medico",
+							"description": "\n",
+							"type": "text"
+						},
+						{
+							"key": "hospital",
+							"value": "5e56b48e5ca48557dc4439dd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/medico?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: Actualizar Medico",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Juan Perez",
+							"type": "text"
+						},
+						{
+							"key": "hospital",
+							"value": "5e56b48e5ca48557dc4439dd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/medico/5e56b89cd8567e07c426ebde?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico",
+						"5e56b89cd8567e07c426ebde"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Medico: Borrar Medico",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:3000/medico/5e56b7add8567e07c426ebdd?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"medico",
+						"5e56b7add8567e07c426ebdd"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7InJvbGUiOiJVU0VSX1JPTEUiLCJfaWQiOiI1ZTU2OTQ5YTRkMjc4MzVhZDgxOTk4ZWIiLCJub21icmUiOiJ0ZXN0MSIsImVtYWlsIjoidGVzdDFAdGVzdDEuY29tIiwicGFzc3dvcmQiOiI6KSIsIl9fdiI6MH0sImlhdCI6MTU4Mjc0MTUyMCwiZXhwIjoxNTgyNzQyMTIwfQ.Mhs-DYdEyzsI3EeLMwVftYs7dmzVA1OLECU5ak64_iQ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda: Buscar por coleccion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/busqueda/coleccion/hospitales/norte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"busqueda",
+						"coleccion",
+						"hospitales",
+						"norte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda: Buscar en todas las colecciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/busqueda/todo/juan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"busqueda",
+						"todo",
+						"juan"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
