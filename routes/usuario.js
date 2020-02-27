@@ -106,7 +106,7 @@ app.put('/:id', (req, resp) => {
 
 // Crear un nuevo usuario
 
-app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
+app.post('/', (req, resp) => {
 
     // Usar libreria body parser node
 
