@@ -130,6 +130,8 @@ app.post('/', (req, resp) => {
             });
         }
 
+        usuarioGuardado.password = ':D';
+
         resp.status(201).json({
             ok: true,
             usuario: usuarioGuardado,
