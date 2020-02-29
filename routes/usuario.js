@@ -53,15 +53,16 @@ app.get('/', (req, resp, next) => {
 
 // Actualizar un usuario
 
-app.put('/:id', (req, resp) => {
+app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 
     var id = req.params.id;
     var body = req.body;
 
-    Usuario.findById(id, mdAutenticacion.verificaToken, (err, usuario) => {
+    Usuario.findById(id, (err, usuario) => {
+
 
         if (err) {
-            return resp.status(500).json({
+            return res.status(500).json({
                 ok: false,
                 mensaje: 'Error al buscar usuario',
                 errors: err
@@ -69,12 +70,13 @@ app.put('/:id', (req, resp) => {
         }
 
         if (!usuario) {
-            return resp.status(400).json({
+            return res.status(400).json({
                 ok: false,
-                mensaje: 'No existe el usuario con id: ' + id,
+                mensaje: 'El usuario con el id ' + id + ' no existe',
                 errors: { message: 'No existe un usuario con ese ID' }
             });
         }
+
 
         usuario.nombre = body.nombre;
         usuario.email = body.email;
@@ -83,7 +85,7 @@ app.put('/:id', (req, resp) => {
         usuario.save((err, usuarioGuardado) => {
 
             if (err) {
-                return resp.status(400).json({
+                return res.status(400).json({
                     ok: false,
                     mensaje: 'Error al actualizar usuario',
                     errors: err
@@ -92,7 +94,7 @@ app.put('/:id', (req, resp) => {
 
             usuarioGuardado.password = ':)';
 
-            resp.status(200).json({
+            res.status(200).json({
                 ok: true,
                 usuario: usuarioGuardado
             });
