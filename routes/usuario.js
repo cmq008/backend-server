@@ -22,7 +22,7 @@ app.get('/', (req, resp, next) => {
 
     desde = Number(desde);
 
-    Usuario.find({}, 'nombre email role')
+    Usuario.find({}, 'nombre email img role google')
         .skip(desde)
         .limit(5)
         .exec(
