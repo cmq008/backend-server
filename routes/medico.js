@@ -39,13 +39,55 @@ app.get('/', (req, resp, next) => {
                 Medico.count({}, (err, conteo) => {
                     resp.status(200).json({
                         ok: true,
-                        medicos: medicos
+                        medicos: medicos,
+                        total: conteo
                     });
                 });
 
             });
 
 });
+
+// Obtener medico
+
+app.get('/:id', (req, resp, next) => {
+
+    var id = req.params.id;
+
+    Medico.findById(id)
+        .populate('usuario', 'nombre email img')
+        .populate('hospital')
+        .exec(
+            (err, medico) => {
+
+                if (err) {
+                    return resp.status(500).json({
+                        ok: false,
+                        mensaje: 'Error cargando medico',
+                        errors: err
+                    });
+                }
+
+                if (!medico) {
+                    return resp.status(400).json({
+                        ok: false,
+                        mensaje: 'No existe el medico con id: ' + id,
+                        errors: { message: 'No existe un medico con ese ID' }
+                    });
+                }
+
+                resp.status(200).json({
+                    ok: true,
+                    medico: medico
+                });
+
+            }
+        );
+
+});
+
+
+
 
 
 // Actualizar un medico

@@ -23,6 +23,7 @@ app.get('/', (req, resp, next) => {
 
     Hospital.find({})
         .populate('usuario', 'nombre email')
+        .skip(desde)
         .exec(
             (err, hospitales) => {
 
