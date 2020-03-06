@@ -35,3 +35,50 @@ exports.verificaToken = function(req, resp, next) {
 
 
 };
+
+// Verificar Admin
+
+exports.verificaAdmin = function(req, resp, next) {
+
+    var usuario = req.usuario;
+
+    if (usuario.role === 'ADMIN_ROLE') {
+
+        next();
+        return;
+
+    } else {
+
+        return resp.status(401).json({
+            ok: false,
+            mensaje: 'Token incorrecto - no es administrador',
+            errors: { message: 'No es administrador' }
+        });
+
+    }
+
+};
+
+// Verificar Admin o mismo usuario
+
+exports.verificaAdminOelUsuario = function(req, resp, next) {
+
+    var usuario = req.usuario;
+    var id = req.params.id;
+
+    if (usuario.role === 'ADMIN_ROLE' || usuario._id === id) {
+
+        next();
+        return;
+
+    } else {
+
+        return resp.status(401).json({
+            ok: false,
+            mensaje: 'Token incorrecto - no es administrador ni es el mismo usuario',
+            errors: { message: 'No es administrador' }
+        });
+
+    }
+
+};
