@@ -19,6 +19,23 @@ var CLIENT_ID = require('../config/config').CLIENT_ID;
 var { OAuth2Client } = require('google-auth-library');
 var client = new OAuth2Client(CLIENT_ID);
 
+// Middleware login
+var mdAutenticacion = require('../middlewares/autenticacion');
+
+// Generar token
+
+app.get('/renuevatoken', mdAutenticacion.verificaToken, (req, resp) => {
+
+    // Crear un token (jsonwebtoken)
+    var token = jwt.sign({ usuario: req.usuario }, SEED, { expiresIn: 3600 }); //1 hora
+
+    resp.status(200).json({
+        ok: true,
+        token: token
+    });
+
+});
+
 // Autenticacion de google
 
 async function verify(token) {
@@ -41,6 +58,7 @@ async function verify(token) {
     };
 }
 
+// Autenticacion google 
 
 app.post('/google', async(req, resp) => {
 
@@ -76,7 +94,7 @@ app.post('/google', async(req, resp) => {
 
             } else {
 
-                var token = jwt.sign({ usuario: usuarioDB }, SEED, { expiresIn: 10400 }); //4 horas
+                var token = jwt.sign({ usuario: usuarioDB }, SEED, { expiresIn: 3600 }); //1 hora
 
                 // Confirmacion de inicio de sesion
 
@@ -183,7 +201,7 @@ app.post('/', (req, resp) => {
         // Crear un token (jsonwebtoken)
 
         usuarioDB.password = ':)';
-        var token = jwt.sign({ usuario: usuarioDB }, SEED, { expiresIn: 3600 }); //4 horas
+        var token = jwt.sign({ usuario: usuarioDB }, SEED, { expiresIn: 3600 }); //1 horas
 
         // Confirmacion de inicio de sesion
 
