@@ -192,8 +192,8 @@ app.get('/:id', (req, res) => {
                 ok: true,
                 hospital: hospital
             });
-        })
-})
+        });
+});
 
 
 
