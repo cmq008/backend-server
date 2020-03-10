@@ -238,12 +238,21 @@ function obtenerMenu(ROLE) {
                 { titulo: 'Hospitales', url: '/hospitales' },
                 { titulo: 'Medicos', url: '/medicos' }
             ]
+        },
+        {
+            titulo: 'Cartas',
+            icono: 'mdi mdi-email',
+            submenu: [
+                { titulo: 'Nueva Carta', url: '/nuevacarta' },
+                { titulo: 'Listado de cartas', url: '/listadocartas' },
+            ]
         }
     ];
 
     if (ROLE === 'ADMIN_ROLE') {
         menu[1].submenu.unshift({ titulo: 'Usuarios', url: '/usuarios' });
     }
+
 
     return menu;
 

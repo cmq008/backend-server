@@ -14,7 +14,7 @@ var app = express();
 
 var Usuario = require('../models/usuario');
 
-// Obtener datos de los usuaros
+// Obtener datos de los usuarios
 
 app.get('/', (req, resp, next) => {
 
