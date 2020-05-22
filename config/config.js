@@ -6,7 +6,7 @@ module.exports.CLIENT_ID = "951684453302-tduj0jt1i4sq4vjn7fvgt3rviuvp6o03.apps.g
 module.exports.SECRET = "ZKUbbtY_bx85zKPuEq4Aaqdu";
 
 module.exports.CORREO = "operir9@sunat.gob.pe";
-module.exports.PASSWORD = "S0p0rt3.2020";
+module.exports.PASSWORD = "S@l3s1anOCM_08";
 
 module.exports.HOST = 'smtp.office365.com';
 module.exports.PORT = 587;

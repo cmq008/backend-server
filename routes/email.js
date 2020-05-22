@@ -45,7 +45,7 @@ app.post('/', mdAutenticacion.verificaToken, (req, resp) => {
             return resp.status(400).json({
                 ok: false,
                 mensaje: 'Error al enviar correo electronico',
-                errors: err.code
+                errors: err
             });
         },
         onSuccess: i => {

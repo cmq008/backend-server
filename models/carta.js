@@ -8,7 +8,7 @@ var rolesValidos = {
 
 var cartaSchema = new Schema({
 
-    orden: { type: String, required: [true, 'El orden es necesario'] },
+    orden: { type: String, unique: true, required: [true, 'El orden es necesario'] },
     ruc: { type: String, required: [true, 'El RUC es necesario'] },
     razonSocial: { type: String, required: [true, 'La razon social es necesaria'] },
     nroCarta: { type: String, required: [true, 'El numero de carta es necesario'] },
@@ -19,7 +19,6 @@ var cartaSchema = new Schema({
     AreaRespuesta: { type: String, required: [true, 'El area respuesta es necesario'] },
     FechaPresentacion: { type: Date, required: [true, 'La fecha presentacion es necesaria'] },
     FechaVencimiento: { type: Date, required: [true, 'La fecha vencimiento es necesaria'] },
-    Vencimiento: { type: Number },
     DocRelacionado: { type: String },
     FechaDocRelacionado: { type: Date },
     NroEsquelaSustitucion: { type: String },

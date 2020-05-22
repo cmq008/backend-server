@@ -245,6 +245,7 @@ function obtenerMenu(ROLE) {
             submenu: [
                 { titulo: 'Nueva Carta', url: '/nuevacarta' },
                 { titulo: 'Listado de cartas', url: '/listadocartas' },
+                { titulo: 'Resolución de cartas', url: '/resolucioncartas' },
             ]
         }
     ];

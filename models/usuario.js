@@ -5,7 +5,19 @@ var uniqueValidator = require('mongoose-unique-validator');
 var Schema = mongoose.Schema;
 
 var rolesValidos = {
-    values: ['ADMIN_ROLE', 'USER_ROLE'],
+    values: ['ADMIN_ROLE',
+        'USER_ROLE',
+        'SERVICIOS_ROLE',
+        'RECLAMOS_ROLE',
+        'CONTROL_ROLE',
+        'AUDITORIA_ROLE',
+        'OSA_ROLE',
+        'SERVICIOS_ADM_ROLE',
+        'RECLAMOS_ADM_ROLE',
+        'CONTROL_ADM_ROLE',
+        'AUDITORIA_ADM_ROLE',
+        'OSA_ADM_ROLE',
+    ],
     message: '{VALUE} no es un valor permitido'
 };
 
